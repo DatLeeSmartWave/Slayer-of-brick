@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BallSpawner : MonoBehaviour {
@@ -14,6 +15,13 @@ public class BallSpawner : MonoBehaviour {
     [SerializeField] GameObject ballPrefabs;
     [SerializeField] float force;
     [SerializeField] int ballCount;
+    [SerializeField] TextMeshPro ballCountText;
+
+    private void Awake() {
+        Application.targetFrameRate = 60;
+        ballCountText.text = "x" + ballCount.ToString();
+    }
+
     private void FixedUpdate() {
         if (Input.GetMouseButton(0)) {
             ray = Physics2D.Raycast(transform.position, transform.up, 100f, layerMask);
@@ -42,7 +50,7 @@ public class BallSpawner : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0) && ballCount > 0) {
             StartCoroutine(ShootBalls());
         }
     }
@@ -52,6 +60,13 @@ public class BallSpawner : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
             GameObject ball = Instantiate(ballPrefabs, transform.position, Quaternion.identity);
             ball.GetComponent<Rigidbody2D>().AddForce(transform.up * force);
+            ballCount--;
+            ballCountText.text = "x" + ballCount.ToString();
         }
+    }
+
+    public void PlusBall() {
+        ballCount++;
+        ballCountText.text = "x" + ballCount.ToString();
     }
 }
