@@ -24,7 +24,7 @@ public class Ball : MonoBehaviour {
             rb.AddForce(directionToPlayer * forceMagnitude, ForceMode2D.Impulse);
         } else if (collision.gameObject.tag == "Player") {
             gameObject.SetActive(false);
-            FindObjectOfType<BallSpawner>().PlusBall();
+            FindObjectOfType<BallSpawner>().StartCoroutine(FindObjectOfType<BallSpawner>().PlusBall());
             Debug.Log("hide");
         }
     }

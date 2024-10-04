@@ -18,7 +18,7 @@ public class BallSpawner : MonoBehaviour {
     int fistBallCount;
     [SerializeField] TextMeshPro ballCountText;
     [SerializeField] GameObject bricksZone;
-    public float distance;
+    public float distanceToMoveDown;
 
     private void Awake() {
         Application.targetFrameRate = 60;
@@ -69,11 +69,12 @@ public class BallSpawner : MonoBehaviour {
         }
     }
 
-    public void PlusBall() {
+    public IEnumerator PlusBall() {
         ballCount++;
         ballCountText.text = "x" + ballCount.ToString();
         if (ballCount == fistBallCount) {
-            bricksZone.transform.position = new Vector2(bricksZone.transform.position.x, bricksZone.transform.position.y - distance);
+            yield return new WaitForSeconds(1f);
+            bricksZone.transform.position = new Vector2(bricksZone.transform.position.x, bricksZone.transform.position.y - distanceToMoveDown);
         }
     }
 }

@@ -1692,7 +1692,7 @@ MonoBehaviour:
   ballCount: 50
   ballCountText: {fileID: 1491025954}
   bricksZone: {fileID: 297083601}
-  distance: 0.3
+  distanceToMoveDown: 0.4
 --- !u!4 &2103410440
 Transform:
   m_ObjectHideFlags: 0
