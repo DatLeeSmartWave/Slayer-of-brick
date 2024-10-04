@@ -16,6 +16,8 @@ public class BallSpawner : MonoBehaviour {
     [SerializeField] float force;
     [SerializeField] int ballCount;
     [SerializeField] TextMeshPro ballCountText;
+    [SerializeField] GameObject bricksZone;
+    public float distance;
 
     private void Awake() {
         Application.targetFrameRate = 60;
@@ -68,5 +70,8 @@ public class BallSpawner : MonoBehaviour {
     public void PlusBall() {
         ballCount++;
         ballCountText.text = "x" + ballCount.ToString();
+        if (ballCount == 20) {
+            bricksZone.transform.position = new Vector2(bricksZone.transform.position.x, bricksZone.transform.position.y - distance);
+        }
     }
 }
