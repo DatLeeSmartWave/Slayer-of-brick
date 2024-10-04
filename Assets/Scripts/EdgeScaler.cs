@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
 
 public class EdgeScaler : MonoBehaviour {
+    [SerializeField] GameObject playerPos;
+    [SerializeField] GameObject bottomEdge;
+
     void Start() {
-        // Lấy kích thước của màn hình trong world units
         float screenHeight = Camera.main.orthographicSize * 2;
         float screenWidth = screenHeight * Camera.main.aspect;
+        if(gameObject.tag == "BottomEdge")
+        playerPos.transform.position = new Vector2(playerPos.transform.position.x, bottomEdge.transform.position.y +1.25f);
 
         // Điều chỉnh kích thước cho các cạnh
-        if (gameObject.CompareTag("TopEdge") || gameObject.CompareTag("BottomEdge")) {
-            // Đối với cạnh trên và dưới, kéo dài theo chiều ngang
+        if (gameObject.CompareTag("TopEdge") || gameObject.CompareTag("BottomEdge")|| gameObject.CompareTag("Player")) {
             transform.localScale = new Vector3(screenWidth, transform.localScale.y, transform.localScale.z);
-            // Di chuyển vị trí tới cạnh trên hoặc dưới
             transform.position = new Vector3(0, (gameObject.CompareTag("TopEdge") ? screenHeight / 2 : -screenHeight / 2), 0);
         } else if (gameObject.CompareTag("LeftEdge") || gameObject.CompareTag("RightEdge")) {
-            // Đối với cạnh trái và phải, kéo dài theo chiều cao
             transform.localScale = new Vector3(transform.localScale.x, screenHeight, transform.localScale.z);
-            // Di chuyển vị trí tới cạnh trái hoặc phải
             transform.position = new Vector3((gameObject.CompareTag("LeftEdge") ? -screenWidth / 2 : screenWidth / 2), 0, 0);
         }
     }
