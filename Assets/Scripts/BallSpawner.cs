@@ -15,6 +15,7 @@ public class BallSpawner : MonoBehaviour {
     [SerializeField] GameObject ballPrefabs;
     [SerializeField] float force;
     [SerializeField] int ballCount;
+    int fistBallCount;
     [SerializeField] TextMeshPro ballCountText;
     [SerializeField] GameObject bricksZone;
     public float distance;
@@ -22,6 +23,7 @@ public class BallSpawner : MonoBehaviour {
     private void Awake() {
         Application.targetFrameRate = 60;
         ballCountText.text = "x" + ballCount.ToString();
+        fistBallCount = ballCount;
     }
 
     private void FixedUpdate() {
@@ -70,7 +72,7 @@ public class BallSpawner : MonoBehaviour {
     public void PlusBall() {
         ballCount++;
         ballCountText.text = "x" + ballCount.ToString();
-        if (ballCount == 20) {
+        if (ballCount == fistBallCount) {
             bricksZone.transform.position = new Vector2(bricksZone.transform.position.x, bricksZone.transform.position.y - distance);
         }
     }
