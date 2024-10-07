@@ -54,14 +54,17 @@ public class GridManager : MonoBehaviour {
 
     // Hàm bắn ra một Barrier bay lên cao
     public void ShootBarrier() {
-        // Tạo một Barrier tại vị trí của playerPos
-        GameObject newBarrier = Instantiate(barrierPrefab, playerPos.transform.position, Quaternion.identity);
+        GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
+        if (bricks.Length > 0) {
+            // Tạo một Barrier tại vị trí của playerPos
+            GameObject newBarrier = Instantiate(barrierPrefab, playerPos.transform.position, Quaternion.identity);
 
-        // Kiểm tra nếu barrier có Rigidbody2D, nếu có thì đẩy nó bay lên
-        Rigidbody2D rb = newBarrier.GetComponent<Rigidbody2D>();
-        if (rb != null) {
-            rb.velocity = new Vector2(0, barrierSpeed); // Đẩy barrier bay lên theo trục Y
+            // Kiểm tra nếu barrier có Rigidbody2D, nếu có thì đẩy nó bay lên
+            Rigidbody2D rb = newBarrier.GetComponent<Rigidbody2D>();
+            if (rb != null) {
+                rb.velocity = new Vector2(0, barrierSpeed); // Đẩy barrier bay lên theo trục Y
+            }
+            Destroy(newBarrier, 2f);
         }
-        Destroy(newBarrier,2f);
     }
 }

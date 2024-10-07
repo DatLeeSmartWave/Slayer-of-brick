@@ -6,9 +6,13 @@ public class PlaySceneUi : MonoBehaviour {
     /// Button 
 
     public void MinusBrickHpButton() {
-        Brick[] allBricks = FindObjectsOfType<Brick>();
-        foreach (Brick brick in allBricks) {
-            brick.MinusBrickHp();
+        GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
+        if (bricks.Length > 0) {
+            Brick[] allBricks = FindObjectsOfType<Brick>();
+            foreach (Brick brick in allBricks) {
+                brick.MinusBrickHp();
+            }
+            Debug.Log("Minus brick hp");
         }
     }
 
