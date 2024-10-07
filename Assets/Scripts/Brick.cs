@@ -19,4 +19,9 @@ public class Brick : MonoBehaviour {
                 gameObject.SetActive(false);
         } 
     }
+
+    public void MinusBrickHp() {
+        brickHP--;
+        brickHPText.text = brickHP.ToString();
+    }
 }

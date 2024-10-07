@@ -3,12 +3,13 @@
 public class EdgeScaler : MonoBehaviour {
     [SerializeField] GameObject playerPos;
     [SerializeField] GameObject bottomEdge;
+    public float distanceToMove ;
 
     void Start() {
         float screenHeight = Camera.main.orthographicSize * 2;
         float screenWidth = screenHeight * Camera.main.aspect;
         if(gameObject.tag == "BottomEdge")
-        playerPos.transform.position = new Vector2(playerPos.transform.position.x, bottomEdge.transform.position.y +1.25f);
+        playerPos.transform.position = new Vector2(playerPos.transform.position.x, bottomEdge.transform.position.y + distanceToMove);
 
         // Điều chỉnh kích thước cho các cạnh
         if (gameObject.CompareTag("TopEdge") || gameObject.CompareTag("BottomEdge")|| gameObject.CompareTag("Player")) {
