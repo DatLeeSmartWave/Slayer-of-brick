@@ -77,4 +77,9 @@ public class BallSpawner : MonoBehaviour {
             bricksZone.transform.position = new Vector2(bricksZone.transform.position.x, bricksZone.transform.position.y - distanceToMoveDown);
         }
     }
+
+    public void AddMoreBalls() {
+        ballCount += 5;
+        ballCountText.text = "x" + ballCount.ToString();
+    }
 }

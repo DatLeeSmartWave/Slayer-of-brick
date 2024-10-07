@@ -9,6 +9,8 @@ TagManager:
   - LeftEdge
   - BottomEdge
   - RightEdge
+  - Brick
+  - Barrier
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - UI
   - Ball
   - Brick
-  - 
+  - Barrier
   - 
   - 
   - 

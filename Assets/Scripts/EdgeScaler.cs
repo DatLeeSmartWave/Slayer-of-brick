@@ -5,7 +5,7 @@ public class EdgeScaler : MonoBehaviour {
     [SerializeField] GameObject bottomEdge; // Gán cạnh dưới
     public float distanceToMove; // Khoảng cách để di chuyển người chơi
 
-    void Start() {
+    private void Awake() {
         // Lấy kích thước màn hình
         float screenHeight = Camera.main.orthographicSize * 2;
         float screenWidth = screenHeight * Camera.main.aspect;
@@ -27,5 +27,9 @@ public class EdgeScaler : MonoBehaviour {
             // Đặt vị trí cạnh trái hoặc phải
             transform.position = new Vector3((gameObject.CompareTag("LeftEdge") ? -screenWidth / 2 : screenWidth / 2), 0, 0);
         }
+    }
+
+    void Start() {
+        
     }
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1503990954166387990}
   - component: {fileID: 1450002873052647418}
   - component: {fileID: 6220946715197883514}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Brick 1
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 3977289421069294127}
   - component: {fileID: 2596154098074962355}
   - component: {fileID: 803787783072699283}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

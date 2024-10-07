@@ -18,10 +18,16 @@ public class Brick : MonoBehaviour {
             if (brickHP <= 0)
                 gameObject.SetActive(false);
         } 
+        else if (collision.gameObject.tag == "Barrier") {
+            gameObject.SetActive(false);
+            Destroy(collision.gameObject);
+        }
     }
 
     public void MinusBrickHp() {
-        brickHP--;
+        brickHP-=10;
         brickHPText.text = brickHP.ToString();
+        if (brickHP <= 0)
+            gameObject.SetActive(false);
     }
 }
