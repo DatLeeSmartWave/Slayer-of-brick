@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
     [SerializeField] TextMeshPro brickHPText;
+    [SerializeField] GameObject explosionPrefab;
+    [SerializeField] GameObject lightningPrefab;
     public int brickHP;
     // Start is called before the first frame update
     void Start() {
@@ -19,6 +21,7 @@ public class Brick : MonoBehaviour {
                 gameObject.SetActive(false);
         } 
         else if (collision.gameObject.tag == "Barrier") {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
             Destroy(collision.gameObject);
         }
@@ -30,5 +33,9 @@ public class Brick : MonoBehaviour {
         if (brickHP <= 0)
             gameObject.SetActive(false);
         PlayerPrefs.SetInt(StringManager.forbidToShootBalls, 0);
+    }
+
+    public void SpawnLightning() {
+        Instantiate(lightningPrefab, transform.position, Quaternion.identity);
     }
 }

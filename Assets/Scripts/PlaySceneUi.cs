@@ -11,6 +11,7 @@ public class PlaySceneUi : MonoBehaviour {
             Brick[] allBricks = FindObjectsOfType<Brick>();
             foreach (Brick brick in allBricks) {
                 brick.MinusBrickHp();
+                brick.SpawnLightning();
             }
             Debug.Log("Minus brick hp");
         }

@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickHPText: {fileID: 4468353167027009035}
+  explosionPrefab: {fileID: 8755276791350820529, guid: 963e9a4976191f94ba60492a99f12591, type: 3}
+  lightningPrefab: {fileID: 896298373343219075, guid: 087b22556d93b96498863a8944f62111, type: 3}
   brickHP: 20
 --- !u!1 &6472837436740837483
 GameObject:
