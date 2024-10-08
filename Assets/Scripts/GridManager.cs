@@ -16,7 +16,7 @@ public class GridManager : MonoBehaviour {
 
     private void Awake() {
         Application.targetFrameRate = 60;
-        GenerateGrid();
+        //GenerateGrid();
     }
 
     private void Start() {
@@ -54,6 +54,7 @@ public class GridManager : MonoBehaviour {
 
     // Hàm bắn ra một Barrier bay lên cao
     public void ShootBarrier() {
+        PlayerPrefs.SetInt(StringManager.forbidToShootBalls, 1);
         GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
         if (bricks.Length > 0) {
             // Tạo một Barrier tại vị trí của playerPos
@@ -65,6 +66,7 @@ public class GridManager : MonoBehaviour {
                 rb.velocity = new Vector2(0, barrierSpeed); // Đẩy barrier bay lên theo trục Y
             }
             Destroy(newBarrier, 2f);
+            PlayerPrefs.SetInt(StringManager.forbidToShootBalls, 0);
         }
     }
 }

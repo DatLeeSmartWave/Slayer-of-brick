@@ -29,5 +29,6 @@ public class Brick : MonoBehaviour {
         brickHPText.text = brickHP.ToString();
         if (brickHP <= 0)
             gameObject.SetActive(false);
+        PlayerPrefs.SetInt(StringManager.forbidToShootBalls, 0);
     }
 }
