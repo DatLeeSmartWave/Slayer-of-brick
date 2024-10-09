@@ -1,4 +1,4 @@
 public class StringManager 
 {
-    internal static string forbidToShootBalls = "forbidToShootBalls";
+    internal static string levelId = "LevelId";
 }

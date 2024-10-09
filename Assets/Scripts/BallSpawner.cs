@@ -91,13 +91,11 @@ public class BallSpawner : MonoBehaviour {
         if (ballCount == fistBallCount) {
             yield return new WaitForSeconds(1f);
             bricksZone.transform.position = new Vector2(bricksZone.transform.position.x, bricksZone.transform.position.y - distanceToMoveDown);
-            PlayerPrefs.SetInt(StringManager.forbidToShootBalls, 0);
         }
     }
 
     public void AddMoreBalls() {
         ballCount += 5;
         ballCountText.text = "x" + ballCount.ToString();
-        PlayerPrefs.SetInt(StringManager.forbidToShootBalls, 0);
     }
 }
