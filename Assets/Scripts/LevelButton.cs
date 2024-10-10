@@ -17,7 +17,8 @@ public class LevelButton : MonoBehaviour {
     void Start() {
         //if(levelId == 0)
         //    button.sprite = ongoingIcon;
-        levelText.text = (levelId + 1).ToString();
+        if (levelText != null)
+            levelText.text = (levelId + 1).ToString();
         SetUpButtonStatus();
     }
 
@@ -27,7 +28,11 @@ public class LevelButton : MonoBehaviour {
             button.sprite = ongoingIcon;
         else {
             button.sprite = lockedIcon;
+            levelText.gameObject.SetActive(false);
             whiteStars.SetActive(false);
+        }
+        if (levelId < PlayerPrefs.GetInt(StringManager.currentLevelId)) {
+            yellowStars.SetActive(true);
         }
     }
 

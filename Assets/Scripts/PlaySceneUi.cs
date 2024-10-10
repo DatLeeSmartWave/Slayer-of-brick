@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +9,9 @@ public class PlaySceneUi : MonoBehaviour {
 
     [SerializeField] private GameObject[] levelObjects;
     [SerializeField] private Image fadeImage;
-
+    [SerializeField] private UiPanelDotween winpanel;
+    [SerializeField] private TextMeshProUGUI levelText;
+    bool hasFadeIn =false ;
 
     private void Awake() {
         Application.targetFrameRate = 60;
@@ -16,6 +19,11 @@ public class PlaySceneUi : MonoBehaviour {
 
     private void Start() {
         ShowLevelObject();
+    }
+
+    private void Update() {
+        //ShowWinPanel();
+        CountBrickNumber();
     }
 
     /// Button 
@@ -32,6 +40,10 @@ public class PlaySceneUi : MonoBehaviour {
         }
     }
 
+    public void NextLevelButton() {
+        LoadScene("PlayScene");
+    }
+
     public void AddMoreBallsButton() {
         FindObjectOfType<BallSpawner>().AddMoreBalls();
     }
@@ -43,6 +55,8 @@ public class PlaySceneUi : MonoBehaviour {
         if (levelId >= 0 && levelId < levelObjects.Length) {
             levelObjects[levelId].SetActive(true);
         }
+        if (levelText != null)
+            levelText.text = "Level " + (levelId+1).ToString();
     }
 
     // Chuyển cảnh với hiệu ứng fade
@@ -63,6 +77,24 @@ public class PlaySceneUi : MonoBehaviour {
         }
 
         SceneManager.LoadScene(sceneName);
+    }
+
+    void CountBrickNumber() {
+        GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
+        if (bricks.Length == 0) {
+            if(winpanel!=null)
+            ShowWinPanel();
+        }
+    }
+
+    void ShowWinPanel() {
+        if (!hasFadeIn) {
+            winpanel.PanelFadeIn();
+            PlayerPrefs.SetInt(StringManager.levelId, PlayerPrefs.GetInt(StringManager.levelId) + 1);
+            PlayerPrefs.SetInt(StringManager.currentLevelId, PlayerPrefs.GetInt(StringManager.levelId));
+            Debug.Log("Next level: " + (PlayerPrefs.GetInt(StringManager.currentLevelId) ));
+            hasFadeIn = true;
+        }
     }
 }
 
