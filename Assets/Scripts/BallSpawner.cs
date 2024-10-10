@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems; // Thêm namespace này
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BallSpawner : MonoBehaviour {
     private RaycastHit2D ray;
@@ -20,6 +21,7 @@ public class BallSpawner : MonoBehaviour {
     [SerializeField] TextMeshPro ballCountText;
     [SerializeField] GameObject bricksZone;
     public float distanceToMoveDown;
+    [SerializeField] private Image background;
 
     private bool isPointerOverUI; // Biến cờ để kiểm tra nếu chuột đang trên UI
 
@@ -66,13 +68,27 @@ public class BallSpawner : MonoBehaviour {
         }
     }
 
-    // Hàm kiểm tra nếu chuột đang nằm trên UI
+    // Hàm kiểm tra nếu chuột đang nằm trên UI nhưng bỏ qua background
     private bool IsPointerOverUIElement() {
         PointerEventData eventData = new PointerEventData(EventSystem.current);
         eventData.position = Input.mousePosition;
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
-        return results.Count > 0;
+
+        // Duyệt qua tất cả các kết quả raycast
+        foreach (RaycastResult result in results) {
+            // Nếu là thành phần background thì bỏ qua
+            if (result.gameObject == background.gameObject) {
+                continue;
+            }
+            // Nếu gặp thành phần UI nào khác thì trả về true (chuột đang trên UI)
+            if (result.gameObject.GetComponent<Graphic>() != null) {
+                return true;
+            }
+        }
+
+        // Nếu chỉ trên background hoặc không nằm trên thành phần UI nào khác
+        return false;
     }
 
     public IEnumerator ShootBalls() {
