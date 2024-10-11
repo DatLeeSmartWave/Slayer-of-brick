@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2939118981373147497}
   - component: {fileID: 2274319215207257454}
   - component: {fileID: 2747464857871810791}
+  - component: {fileID: 7699605006670030789}
   m_Layer: 7
   m_Name: GreenBrick
   m_TagString: Brick
@@ -151,6 +152,33 @@ MonoBehaviour:
   explosionPrefab: {fileID: 8755276791350820529, guid: 963e9a4976191f94ba60492a99f12591, type: 3}
   lightningPrefab: {fileID: 896298373343219075, guid: 087b22556d93b96498863a8944f62111, type: 3}
   brickHP: 20
+--- !u!50 &7699605006670030789
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4054044320399037375}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &6472837436740837483
 GameObject:
   m_ObjectHideFlags: 0

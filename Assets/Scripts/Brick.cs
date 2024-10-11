@@ -8,7 +8,6 @@ public class Brick : MonoBehaviour {
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] GameObject lightningPrefab;
     public int brickHP;
-    int score;
     // Start is called before the first frame update
     void Start() {
         brickHPText.text = brickHP.ToString();
@@ -19,23 +18,38 @@ public class Brick : MonoBehaviour {
             brickHP--;
             brickHPText.text = brickHP.ToString();
             if (brickHP <= 0) {
-                gameObject.SetActive(false);
+                int score;
+                score = PlayerPrefs.GetInt(StringManager.score);
                 score += 10;
                 PlayerPrefs.SetInt(StringManager.score, score);
+                FindObjectOfType<PlaySceneUi>().PlusProgressSlidervalue(.2f);
+                gameObject.SetActive(false);
             }
         } 
         else if (collision.gameObject.tag == "Barrier") {
+            int score;
+            score = PlayerPrefs.GetInt(StringManager.score);
+            score += 10;
+            PlayerPrefs.SetInt(StringManager.score, score);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            FindObjectOfType<SoundManager>().PlayExplosionSound();
+            FindObjectOfType<PlaySceneUi>().PlusProgressSlidervalue(.3f);
             gameObject.SetActive(false);
             Destroy(collision.gameObject);
         }
     }
 
     public void MinusBrickHp() {
-        brickHP-=10;
+        brickHP -= 10;
+        FindObjectOfType<SoundManager>().PlayLightningSound();
         brickHPText.text = brickHP.ToString();
-        if (brickHP <= 0)
+        if (brickHP <= 0) {
+            int score;
+            score = PlayerPrefs.GetInt(StringManager.score);
+            score += 10;
+            PlayerPrefs.SetInt(StringManager.score, score);
             gameObject.SetActive(false);
+        }
     }
 
     public void SpawnLightning() {

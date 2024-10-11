@@ -45,7 +45,7 @@ public class BuyBallButton : MonoBehaviour {
             PlayerPrefs.SetInt("BallPurchased_" + ballId, 1);
             PlayerPrefs.SetInt(StringManager.ballId, ballId);
             ChooseBall();
-        } else {
+        } else if(PlayerPrefs.GetInt(StringManager.rubyNumber) < ballPrice && !useTextIcon.activeSelf) {
             FindObjectOfType<HomeSceneUi>().ShowNoticePanel();
             FindObjectOfType<HomeSceneUi>().noticeText.text = "You don't have enough Ruby to buy !"; 
         }

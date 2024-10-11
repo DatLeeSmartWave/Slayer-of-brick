@@ -8,4 +8,6 @@ public class StringManager
     internal static string ballId = "ballId";
     internal static string score = "score";
     internal static string playerName = "playerName";
+    internal static string musicId = "musicId";
+    internal static string soundId = "soundId";
 }

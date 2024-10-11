@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6149433537969715309}
   - component: {fileID: 1758455103630672246}
   - component: {fileID: 8193104420612412100}
+  - component: {fileID: 5006692140032758155}
   m_Layer: 7
   m_Name: YellowBrick
   m_TagString: Brick
@@ -151,6 +152,33 @@ MonoBehaviour:
   explosionPrefab: {fileID: 8755276791350820529, guid: 963e9a4976191f94ba60492a99f12591, type: 3}
   lightningPrefab: {fileID: 896298373343219075, guid: 087b22556d93b96498863a8944f62111, type: 3}
   brickHP: 20
+--- !u!50 &5006692140032758155
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5629875623743189868}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7223949816265402202
 GameObject:
   m_ObjectHideFlags: 0

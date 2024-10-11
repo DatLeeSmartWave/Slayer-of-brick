@@ -19,6 +19,9 @@ public class PlaySceneUi : MonoBehaviour {
     int starNumber;
     [SerializeField] private UiPanelDotween noticePanelObject;
     bool hasFadeIn = false;
+    [SerializeField] GameObject winPanel;
+    [SerializeField] private TextMeshProUGUI scoreText2;
+    [SerializeField] private Image progressSlider;
 
     private void Awake() {
         Application.targetFrameRate = 60;
@@ -27,6 +30,8 @@ public class PlaySceneUi : MonoBehaviour {
             rubyNumberText.text = rubyNumber.ToString();
         if (starNumberText != null)
             starNumberText.text = PlayerPrefs.GetInt(StringManager.starNumber).ToString();
+        if (winPanel.activeSelf)
+            scoreText2.text = PlayerPrefs.GetInt(StringManager.score).ToString();
     }
 
     private void Start() {
@@ -37,6 +42,10 @@ public class PlaySceneUi : MonoBehaviour {
     private void Update() {
         //ShowWinPanel();
         CountBrickNumber();
+    }
+
+    public void PlusProgressSlidervalue(float value) {
+        progressSlider.fillAmount += value;
     }
 
     /// Button 
@@ -143,6 +152,7 @@ public class PlaySceneUi : MonoBehaviour {
             PlayerPrefs.SetInt(StringManager.starNumber, newStarNumber);
             Debug.Log(PlayerPrefs.GetInt(StringManager.starNumber));
             starNumberText.text = newStarNumber.ToString();
+            FindObjectOfType<SoundManager>().PlayWinSound();
             hasFadeIn = true;
         }
     }

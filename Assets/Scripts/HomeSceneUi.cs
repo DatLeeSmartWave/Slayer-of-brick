@@ -13,6 +13,7 @@ public class HomeSceneUi : MonoBehaviour {
     [SerializeField] TextMeshProUGUI rubyNumberText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] GameObject profilePanel;
+    
     public int rubyNumber;
     [SerializeField] private TextMeshProUGUI starNumberText;
     [SerializeField] private TextMeshProUGUI starNumberText2;
@@ -20,6 +21,7 @@ public class HomeSceneUi : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI nameText2;
     [SerializeField] private UiPanelDotween noticePanelObject;
+    [SerializeField] private UiPanelDotween leaderBoardPanelObject;
     public TextMeshProUGUI noticeText; 
 
     private void Awake() {
@@ -35,9 +37,14 @@ public class HomeSceneUi : MonoBehaviour {
             starNumberText2.text = PlayerPrefs.GetInt(StringManager.starNumber).ToString();
             scoreText.text = PlayerPrefs.GetInt(StringManager.score).ToString();
             nameText2.text = PlayerPrefs.GetString(StringManager.playerName);
+            Debug.Log(PlayerPrefs.GetString(StringManager.playerName));
         }
-        if(changeProfilePanel.activeSelf)
-            nameText.text = PlayerPrefs.GetString(StringManager.playerName);
+        StartCoroutine(ShowPanel());
+        //if (changeProfilePanel.activeSelf) {
+        //    nameText.text = PlayerPrefs.GetString(StringManager.playerName);
+        //    nameText2.text = PlayerPrefs.GetString(StringManager.playerName);
+        //}
+        
     }
 
     /// Button
@@ -60,9 +67,18 @@ public class HomeSceneUi : MonoBehaviour {
 
     public void SaveNameButton() {
         PlayerPrefs.SetString(StringManager.playerName, nameText.text);
+        nameText.text = PlayerPrefs.GetString(StringManager.playerName);
+        nameText2.text = PlayerPrefs.GetString(StringManager.playerName);
+        Debug.Log(PlayerPrefs.GetString(StringManager.playerName));
+        //PlayerPrefs.SetString(StringManager.playerName, nameText2.text);
     }
 
     /// Function
+
+    IEnumerator ShowPanel() {
+        yield return new WaitForSeconds(.1f);
+        leaderBoardPanelObject.PanelFadeIn();
+    }
 
     public void MinusRubyNumber(int number) {
         rubyNumber -= number;
