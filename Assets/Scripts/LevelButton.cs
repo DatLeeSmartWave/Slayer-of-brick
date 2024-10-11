@@ -61,7 +61,12 @@ public class LevelButton : MonoBehaviour {
     public void LoadLevel() {
         if (button.sprite == ongoingIcon) {
             PlayerPrefs.SetInt(StringManager.levelId, levelId);
+            //if (FindObjectOfType<HomeSceneUi>() != null)
+            //FindObjectOfType<HomeSceneUi>().LoadScene("PlayScene");
             LoadScene("PlayScene");
+        } else {
+            FindObjectOfType<HomeSceneUi>().ShowNoticePanel();
+            FindObjectOfType<HomeSceneUi>().noticeText.text = "You have to complete prvious level !";
         }
     }
 }

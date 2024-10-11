@@ -20,7 +20,7 @@ public class GridManager : MonoBehaviour {
     }
 
     private void Start() {
-        brickGrid.transform.localPosition = new Vector3(playerPos.transform.localPosition.x - 2, 3.14f, -0.011f);
+        //brickGrid.transform.localPosition = new Vector3(playerPos.transform.localPosition.x - 2, 3.14f, -0.011f);
     }
 
     private void Update() {

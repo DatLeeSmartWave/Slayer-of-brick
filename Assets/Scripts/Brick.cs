@@ -8,6 +8,7 @@ public class Brick : MonoBehaviour {
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] GameObject lightningPrefab;
     public int brickHP;
+    int score;
     // Start is called before the first frame update
     void Start() {
         brickHPText.text = brickHP.ToString();
@@ -17,8 +18,11 @@ public class Brick : MonoBehaviour {
         if (collision.gameObject.tag == "Ball") {
             brickHP--;
             brickHPText.text = brickHP.ToString();
-            if (brickHP <= 0)
+            if (brickHP <= 0) {
                 gameObject.SetActive(false);
+                score += 10;
+                PlayerPrefs.SetInt(StringManager.score, score);
+            }
         } 
         else if (collision.gameObject.tag == "Barrier") {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
