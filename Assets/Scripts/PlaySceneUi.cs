@@ -23,6 +23,8 @@ public class PlaySceneUi : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI scoreText2;
     [SerializeField] private Image progressSlider;
     [SerializeField] private GameObject fireworkEffect;
+    [SerializeField] private GameObject lightningEffect;
+    [SerializeField] private Transform lightningPos;
 
     private void Awake() {
         Application.targetFrameRate = 60;
@@ -84,6 +86,8 @@ public class PlaySceneUi : MonoBehaviour {
             rubyNumber -= 5;
             PlayerPrefs.SetInt(StringManager.rubyNumber, rubyNumber);
             rubyNumberText.text = rubyNumber.ToString();
+            FindObjectOfType<SoundManager>().PlayLightningSound();
+            Instantiate(lightningEffect, lightningPos.position, lightningPos.rotation);
         } else
             ShowNoticePanel();
     }

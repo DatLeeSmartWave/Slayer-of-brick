@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2274319215207257454}
   - component: {fileID: 2747464857871810791}
   - component: {fileID: 7699605006670030789}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: GreenBrick
   m_TagString: Brick
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 643201957480231815}
   - component: {fileID: 4199560889082962875}
   - component: {fileID: 4468353167027009035}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

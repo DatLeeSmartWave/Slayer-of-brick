@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1218653670177229566}
   - component: {fileID: 3797010955798545718}
   - component: {fileID: 1166074257385449114}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 7308110787937898962}
   - component: {fileID: 7723602873824667155}
   - component: {fileID: -9119521099956734484}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: GreenTriangleBrick
   m_TagString: Brick
   m_Icon: {fileID: 0}

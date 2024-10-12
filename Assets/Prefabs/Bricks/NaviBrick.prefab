@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7235788778030407107}
   - component: {fileID: 1000578975994861027}
   - component: {fileID: 3513402058414896080}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 8779022152220477189}
   - component: {fileID: 3976949196809120314}
   - component: {fileID: -6404979711353175866}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: NaviBrick
   m_TagString: Brick
   m_Icon: {fileID: 0}

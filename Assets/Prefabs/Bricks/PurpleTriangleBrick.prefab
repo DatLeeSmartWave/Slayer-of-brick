@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3558418814642964848}
   - component: {fileID: 7502263976409611472}
   - component: {fileID: 732859720168332665}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: PurpleTriangleBrick
   m_TagString: Brick
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4449655918679072047}
   - component: {fileID: 5050325259648030331}
   - component: {fileID: 7110159285084018861}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
