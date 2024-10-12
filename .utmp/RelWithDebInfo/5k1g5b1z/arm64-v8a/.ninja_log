@@ -1,0 +1,11 @@
+# ninja log v5
+48	335	7503443377452260	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	c98d64eaf1536ad5
+337	563	7503443379054732	C:/New folder/New folder (2)/Slayer-of-brick/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5k1g5b1z/obj/arm64-v8a/libswappywrapper.so	db305aeafa8dc023
+31	1131	7503443385397129	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7dbe9c62da9be957
+24	1179	7503443385848151	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	6d8bc7fb0ee0b160
+7	1222	7503443386300296	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	2a98c0dcb736d6c3
+40	1270	7503443386767042	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	3b78fb269272871a
+12	1331	7503443387355294	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	6568c7dc0e7c9270
+18	1465	7503443388760651	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	9ab37f4d4542dab5
+1	1543	7503443389553143	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	f0d77a9066f6dbe3
+1544	1705	7503443390660311	C:/New folder/New folder (2)/Slayer-of-brick/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5k1g5b1z/obj/arm64-v8a/libgame.so	293ff09e86458f28

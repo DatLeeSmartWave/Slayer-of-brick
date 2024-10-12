@@ -30,8 +30,6 @@ public class PlaySceneUi : MonoBehaviour {
             rubyNumberText.text = rubyNumber.ToString();
         if (starNumberText != null)
             starNumberText.text = PlayerPrefs.GetInt(StringManager.starNumber).ToString();
-        if (winPanel.activeSelf)
-            scoreText2.text = PlayerPrefs.GetInt(StringManager.score).ToString();
     }
 
     private void Start() {
@@ -153,6 +151,8 @@ public class PlaySceneUi : MonoBehaviour {
             Debug.Log(PlayerPrefs.GetInt(StringManager.starNumber));
             starNumberText.text = newStarNumber.ToString();
             FindObjectOfType<SoundManager>().PlayWinSound();
+            if (winPanel.activeSelf)
+                scoreText2.text = PlayerPrefs.GetInt(StringManager.score).ToString();
             hasFadeIn = true;
         }
     }

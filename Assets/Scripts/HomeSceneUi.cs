@@ -27,7 +27,8 @@ public class HomeSceneUi : MonoBehaviour {
     private void Awake() {
         Application.targetFrameRate = 60;
         ShowIcon();
-        rubyNumber = PlayerPrefs.GetInt(StringManager.rubyNumber);
+        rubyNumber = PlayerPrefs.GetInt(StringManager.rubyNumber,100);
+        PlayerPrefs.SetInt(StringManager.rubyNumber, rubyNumber);
         if (rubyNumberText != null)
             rubyNumberText.text = rubyNumber.ToString();
         if (starNumberText != null)
