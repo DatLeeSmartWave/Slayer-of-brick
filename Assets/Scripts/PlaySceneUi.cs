@@ -22,6 +22,7 @@ public class PlaySceneUi : MonoBehaviour {
     [SerializeField] GameObject winPanel;
     [SerializeField] private TextMeshProUGUI scoreText2;
     [SerializeField] private Image progressSlider;
+    [SerializeField] private GameObject fireworkEffect;
 
     private void Awake() {
         Application.targetFrameRate = 60;
@@ -153,6 +154,7 @@ public class PlaySceneUi : MonoBehaviour {
             FindObjectOfType<SoundManager>().PlayWinSound();
             if (winPanel.activeSelf)
                 scoreText2.text = PlayerPrefs.GetInt(StringManager.score).ToString();
+            fireworkEffect.SetActive(true);
             hasFadeIn = true;
         }
     }
