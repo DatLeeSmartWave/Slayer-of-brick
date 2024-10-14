@@ -30,6 +30,8 @@ public class Ball : MonoBehaviour {
             gameObject.SetActive(false);
             FindObjectOfType<BallSpawner>().StartCoroutine(FindObjectOfType<BallSpawner>().PlusBall());
             Debug.Log("hide");
+        } else if (collision.gameObject.tag == "Brick") {
+            FindObjectOfType<SoundManager>().PlayBallSound();
         }
     }
 

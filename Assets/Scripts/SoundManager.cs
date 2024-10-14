@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour {
     [SerializeField] private AudioClip loseSound;
     [SerializeField] private AudioClip lightningSound;
     [SerializeField] private AudioClip explosionSound;
+    [SerializeField] private AudioClip ballSound;
     int soundId;
 
     // Start is called before the first frame update
@@ -66,5 +67,9 @@ public class SoundManager : MonoBehaviour {
 
     public void PlayExplosionSound() {
         soundSource.PlayOneShot(explosionSound);
+    }
+
+    public void PlayBallSound() {
+        soundSource.PlayOneShot(ballSound);
     }
 }
