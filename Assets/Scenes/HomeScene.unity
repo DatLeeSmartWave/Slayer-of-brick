@@ -36562,6 +36562,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1300195121}
     - target: {fileID: 2862150316941874767, guid: db3964941d889554c8423b16b999e661, type: 3}
+      propertyPath: ballSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b54800f55ed0dd4889148a033b0f743, type: 3}
+    - target: {fileID: 2862150316941874767, guid: db3964941d889554c8423b16b999e661, type: 3}
       propertyPath: soundButton
       value: 
       objectReference: {fileID: 1124830908}
